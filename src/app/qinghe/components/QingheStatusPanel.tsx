@@ -119,7 +119,7 @@ export default function QingheStatusPanel() {
 
   const fetchStatus = async () => {
     try {
-      const res = await fetch("/api/qinghe-status");
+      const res = await fetch("/api/status");
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setStatus(data);
@@ -210,18 +210,18 @@ export default function QingheStatusPanel() {
             className="overflow-hidden"
           >
             <div className="p-6 pt-4 space-y-6">
-              {/* 主人观测状态 */}
+              {/* 奕霖观测状态 */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Eye className="w-4 h-4 text-blue-400" />
-                  <span className="text-xs font-medium text-blue-400 uppercase tracking-wider">主人状态</span>
+                  <span className="text-xs font-medium text-blue-400 uppercase tracking-wider">奕霖状态</span>
                   <span className="text-xs text-neutral-600">（基于控制论第9章）</span>
                 </div>
                 <div className="space-y-2">
-                  <StatusBar label="主人能量" value={status.yilin.energy} icon={Zap} color="bg-yellow-500" />
-                  <StatusBar label="主人情绪" value={status.yilin.emotion} icon={Heart} color="bg-pink-500" />
-                  <StatusBar label="主人专注" value={status.yilin.focus} icon={Target} color="bg-blue-500" />
-                  <StatusBar label="主人参与" value={status.yilin.engagement} icon={Activity} color="bg-purple-500" />
+                  <StatusBar label="奕霖能量" value={status.yilin.energy} icon={Zap} color="bg-yellow-500" />
+                  <StatusBar label="奕霖情绪" value={status.yilin.emotion} icon={Heart} color="bg-pink-500" />
+                  <StatusBar label="奕霖专注" value={status.yilin.focus} icon={Target} color="bg-blue-500" />
+                  <StatusBar label="奕霖参与" value={status.yilin.engagement} icon={Activity} color="bg-purple-500" />
                 </div>
                 <div className="mt-2 flex justify-between text-xs text-neutral-500">
                   <span>信号质量: {(status.yilin.signal_quality * 100).toFixed(0)}%</span>
